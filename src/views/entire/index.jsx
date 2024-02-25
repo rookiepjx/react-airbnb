@@ -1,5 +1,7 @@
-const Entire = () => {
-    return <div>Entire</div>
-}
+import { memo } from "react";
 
-export default Entire
+const Entire = memo(() => {
+  return <div>Entire</div>;
+});
+
+export default Entire;
