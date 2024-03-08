@@ -7,6 +7,7 @@ const theme = {
     primaryColor: "#484848",
     secondaryColor: "#222",
   },
+  //   阴影动画mixin
   mixin: {
     boxShadow: `
         transition: box-shadow 200ms ease;
