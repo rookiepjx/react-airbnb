@@ -1,6 +1,7 @@
 import { useEffect, memo } from "react";
 // import { getHomeHighScoreData } from "@/services/modules/home";
 import request from "@/services";
+import HomeBanner from "./home-banner";
 
 const Home = memo(() => {
   useEffect(() => {
@@ -13,7 +14,11 @@ const Home = memo(() => {
         console.log(err);
       });
   }, []);
-  return <div>Home</div>;
+  return (
+    <div>
+      <HomeBanner />
+    </div>
+  );
 });
 
 export default Home;
