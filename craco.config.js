@@ -23,6 +23,7 @@ module.exports = {
       "@": resolve("src"),
       components: resolve("src/components"),
       utils: resolve("src/utils"),
+      "@mui/styled-engine": "@mui/styled-engine-sc", // 为了使用material UI 适配 styled-components
     },
   },
 };
