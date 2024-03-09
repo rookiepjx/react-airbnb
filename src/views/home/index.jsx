@@ -5,6 +5,7 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./home-banner";
 import { HomeWrapper } from "./style";
 import SectionHeader from "@/components/section-header";
+import SectionRooms from "@/components/section-rooms";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -27,6 +28,7 @@ const Home = memo(() => {
       <div className="content">
         <div className="good-price">
           <SectionHeader title={goodPriceInfo.title} />
+          <SectionRooms roomList={goodPriceInfo.list} />
         </div>
       </div>
     </HomeWrapper>
