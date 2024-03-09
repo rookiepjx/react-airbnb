@@ -1,23 +1,35 @@
 import { useEffect, memo } from "react";
-// import { getHomeHighScoreData } from "@/services/modules/home";
-import request from "@/services";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+
+import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./home-banner";
+import { HomeWrapper } from "./style";
+import SectionHeader from "@/components/section-header";
 
 const Home = memo(() => {
+  /** 从redux中获取数据 */
+  const { goodPriceInfo } = useSelector(
+    (state) => ({
+      goodPriceInfo: state.home.goodPriceInfo,
+    }),
+    shallowEqual
+  );
+
+  /** 派发异步的事件: 发送网络请求 */
+  const dispatch = useDispatch();
   useEffect(() => {
-    request
-      .get({ url: "/home/highscore" })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    dispatch(fetchHomeDataAction());
+  }, [dispatch]);
+
   return (
-    <div>
+    <HomeWrapper>
       <HomeBanner />
-    </div>
+      <div className="content">
+        <div className="good-price">
+          <SectionHeader title={goodPriceInfo.title} />
+        </div>
+      </div>
+    </HomeWrapper>
   );
 });
 
