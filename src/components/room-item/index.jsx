@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { Rating } from "@mui/material";
-
 import { ItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
   const { itemData } = props;
 
   return (
-    <ItemWrapper>
+    <ItemWrapper $verifyColor={itemData?.verify_info?.text_color || "#39576a"}>
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
