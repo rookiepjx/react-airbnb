@@ -1,12 +1,12 @@
 import React, { memo } from "react";
-import styleStrToObj from "@/utils";
+import { styleStrToObject } from "@/utils/";
 
 const IconSearchBar = memo(() => {
   return (
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      style={styleStrToObj(
+      style={styleStrToObject(
         "display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333333333333333;overflow:visible"
       )}
       aria-hidden="true"

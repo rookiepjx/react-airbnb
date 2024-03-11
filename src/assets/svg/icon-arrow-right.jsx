@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styleStrToObj from "@/utils";
+import { styleStrToObject } from "@/utils/";
 
 const IconArrowRight = memo(() => {
   return (
@@ -9,7 +9,7 @@ const IconArrowRight = memo(() => {
       aria-hidden="false"
       aria-label="next"
       focusable="false"
-      style={styleStrToObj(
+      style={styleStrToObject(
         "height: 12px; width: 12px; display: block; fill: currentcolor;"
       )}
     >

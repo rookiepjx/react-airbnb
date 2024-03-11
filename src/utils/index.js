@@ -3,7 +3,7 @@
  * @param {字符串 'display:flex;...'} styleStr
  * @returns  {display:flex}
  */
-function styleStrToObject(styleStr) {
+export const styleStrToObject = (styleStr) => {
   const obj = {};
   const s = styleStr
     .toLowerCase()
@@ -17,6 +17,13 @@ function styleStrToObject(styleStr) {
   }
 
   return obj;
-}
+};
 
-export default styleStrToObject;
+/**
+ *
+ * @param {目标对象} obj
+ * @returns 对象是否为空
+ */
+export const isEmptyObject = (obj) => {
+  return !!Object.keys(obj).length;
+};
