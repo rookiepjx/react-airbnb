@@ -2,10 +2,9 @@ import { useEffect, memo } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 import { fetchHomeDataAction } from "@/store/modules/home";
-import HomeBanner from "./home-banner";
 import { HomeWrapper } from "./style";
-import SectionHeader from "@/components/section-header";
-import SectionRooms from "@/components/section-rooms";
+import HomeBanner from "./components/home-banner";
+import HomeSection from "./components/home-section";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -30,22 +29,14 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title} />
-          <SectionRooms roomList={goodPriceInfo.list} />
-        </div>
-        <div className="good-price">
-          <SectionHeader title={highScoreInfo.title} />
-          <SectionRooms roomList={highScoreInfo.list} />
-        </div>
-        <div className="good-price">
-          <SectionHeader title={discountInfo.title} />
-          <SectionRooms roomList={discountInfo.list} />
-        </div>
-        <div className="good-price">
-          <SectionHeader title={recommendInfo.title} />
-          <SectionRooms roomList={recommendInfo.list} />
-        </div>
+        {/* 高性价比源板块 */}
+        <HomeSection infoData={goodPriceInfo} />
+        {/* 高分房源板块 */}
+        <HomeSection infoData={highScoreInfo} />
+        {/* 折扣房源板块 */}
+        <HomeSection infoData={discountInfo} />
+        {/* 推荐房源板块 */}
+        <HomeSection infoData={recommendInfo} />
       </div>
     </HomeWrapper>
   );
