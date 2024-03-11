@@ -5,19 +5,21 @@ import React, { memo } from "react";
 import { SectionWrapper } from "./style";
 
 const HomeSection = memo((props) => {
-  const { infoData } = props;
+  const { infoData, type, col = 4 } = props;
   return (
     <SectionWrapper>
       {/* 房源板块标题 */}
       <SectionHeader title={infoData.title} subtitle={infoData.subtitle} />
       {/* 房源板块房间列表 */}
-      <SectionRooms roomList={infoData.list} />
+      <SectionRooms roomList={infoData.list} col={col} />
     </SectionWrapper>
   );
 });
 
 HomeSection.propTypes = {
-  infoData: PropTypes.object,
+  infoData: PropTypes.object, // 房源数据
+  type: PropTypes.string, // 房源类型
+  col: PropTypes.number, // 每行展示房间列数
 };
 
 export default HomeSection;

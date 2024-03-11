@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   box-sizing: border-box;
-  width: 25%;
+  /* 根据列数动态计算每列宽度 */
+  width: ${(props) => `${100 / props.$col}%`};
   padding: 8px;
 
   .inner {

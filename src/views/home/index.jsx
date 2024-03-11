@@ -29,14 +29,14 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {/* 高性价比源板块 */}
-        <HomeSection infoData={goodPriceInfo} />
-        {/* 高分房源板块 */}
-        <HomeSection infoData={highScoreInfo} />
         {/* 折扣房源板块 */}
-        <HomeSection infoData={discountInfo} />
+        <HomeSection infoData={discountInfo} type="discount" col={3} />
         {/* 推荐房源板块 */}
-        <HomeSection infoData={recommendInfo} />
+        <HomeSection infoData={recommendInfo} type="recommend" col={3} />
+        {/* 高性价比源板块 */}
+        <HomeSection infoData={goodPriceInfo} type="goodPrice" col={4} />
+        {/* 高分房源板块 */}
+        <HomeSection infoData={highScoreInfo} type="highScore" col={4} />
       </div>
     </HomeWrapper>
   );
