@@ -5,6 +5,7 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import { HomeWrapper } from "./style";
 import HomeBanner from "./components/home-banner";
 import HomeSection from "./components/home-section";
+import { isEmptyObject } from "@/utils";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -30,13 +31,21 @@ const Home = memo(() => {
       <HomeBanner />
       <div className="content">
         {/* 折扣房源板块 */}
-        <HomeSection infoData={discountInfo} type="discount" col={3} />
+        {!isEmptyObject(discountInfo) && (
+          <HomeSection infoData={discountInfo} type="discount" col={3} />
+        )}
         {/* 推荐房源板块 */}
-        <HomeSection infoData={recommendInfo} type="recommend" col={3} />
+        {!isEmptyObject(recommendInfo) && (
+          <HomeSection infoData={recommendInfo} type="recommend" col={3} />
+        )}
         {/* 高性价比源板块 */}
-        <HomeSection infoData={goodPriceInfo} type="goodPrice" col={4} />
+        {!isEmptyObject(goodPriceInfo) && (
+          <HomeSection infoData={goodPriceInfo} type="goodPrice" col={4} />
+        )}
         {/* 高分房源板块 */}
-        <HomeSection infoData={highScoreInfo} type="highScore" col={4} />
+        {!isEmptyObject(highScoreInfo) && (
+          <HomeSection infoData={highScoreInfo} type="highScore" col={4} />
+        )}
       </div>
     </HomeWrapper>
   );

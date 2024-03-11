@@ -25,5 +25,5 @@ export const styleStrToObject = (styleStr) => {
  * @returns 对象是否为空
  */
 export const isEmptyObject = (obj) => {
-  return !!Object.keys(obj).length;
+  return !Object.keys(obj).length;
 };
