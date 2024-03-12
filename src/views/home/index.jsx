@@ -32,19 +32,19 @@ const Home = memo(() => {
       <div className="content">
         {/* 折扣房源板块 */}
         {!isEmptyObject(discountInfo) && (
-          <HomeSection infoData={discountInfo} type="discount" col={3} />
+          <HomeSection infoData={discountInfo} col={3} hasTabs />
         )}
         {/* 推荐房源板块 */}
         {!isEmptyObject(recommendInfo) && (
-          <HomeSection infoData={recommendInfo} type="recommend" col={3} />
+          <HomeSection infoData={recommendInfo} col={3} hasTabs />
         )}
         {/* 高性价比源板块 */}
         {!isEmptyObject(goodPriceInfo) && (
-          <HomeSection infoData={goodPriceInfo} type="goodPrice" col={4} />
+          <HomeSection infoData={goodPriceInfo} col={4} />
         )}
         {/* 高分房源板块 */}
         {!isEmptyObject(highScoreInfo) && (
-          <HomeSection infoData={highScoreInfo} type="highScore" col={4} />
+          <HomeSection infoData={highScoreInfo} col={4} />
         )}
       </div>
     </HomeWrapper>
