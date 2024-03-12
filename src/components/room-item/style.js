@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
+  flex-shrink: 0; // flex-shrink默认值为1，会被压缩，0不压缩
   box-sizing: border-box;
   /* 根据列数动态计算每列宽度 */
   width: ${(props) => `${100 / props.$col}%`};

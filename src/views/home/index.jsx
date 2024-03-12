@@ -9,16 +9,24 @@ import { isEmptyObject } from "@/utils";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo } =
-    useSelector(
-      (state) => ({
-        goodPriceInfo: state.home.goodPriceInfo,
-        highScoreInfo: state.home.highScoreInfo,
-        discountInfo: state.home.discountInfo,
-        recommendInfo: state.home.recommendInfo,
-      }),
-      shallowEqual
-    );
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    recommendInfo,
+    longforInfo,
+    plusInfo,
+  } = useSelector(
+    (state) => ({
+      goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo,
+      recommendInfo: state.home.recommendInfo,
+      longforInfo: state.home.longforInfo,
+      plusInfo: state.home.plusInfo,
+    }),
+    shallowEqual
+  );
 
   /** 派发异步的事件: 发送网络请求 */
   const dispatch = useDispatch();
@@ -45,6 +53,10 @@ const Home = memo(() => {
         {/* 高分房源板块 */}
         {!isEmptyObject(highScoreInfo) && (
           <HomeSection infoData={highScoreInfo} col={4} />
+        )}
+        {/* plus房源板块 */}
+        {!isEmptyObject(plusInfo) && (
+          <HomeSection infoData={plusInfo} footerName="plus" scroll />
         )}
       </div>
     </HomeWrapper>
