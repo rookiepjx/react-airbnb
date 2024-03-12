@@ -5,6 +5,7 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import { HomeWrapper } from "./style";
 import HomeBanner from "./components/home-banner";
 import HomeSection from "./components/home-section";
+import HomeLongFor from "./components/home-longfor";
 import { isEmptyObject } from "@/utils";
 
 const Home = memo(() => {
@@ -46,6 +47,7 @@ const Home = memo(() => {
         {!isEmptyObject(recommendInfo) && (
           <HomeSection infoData={recommendInfo} col={3} hasTabs />
         )}
+        {!isEmptyObject(longforInfo) && <HomeLongFor infoData={longforInfo} />}
         {/* 高性价比源板块 */}
         {!isEmptyObject(goodPriceInfo) && (
           <HomeSection infoData={goodPriceInfo} col={4} />
