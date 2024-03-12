@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
+import { useState, useCallback } from "react";
 
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
 import SectionFooter from "@/components/section-footer";
 import SectionTabs from "@/components/section-tabs";
 import { SectionWrapper } from "./style";
-import { useState, useCallback } from "react";
 
 const HomeSection = memo((props) => {
   const { infoData, col = 4, hasTabs } = props;
