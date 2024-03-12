@@ -4,6 +4,8 @@ import {
   getHomeHighScoreData,
   getHomeDiscountData,
   getHomeHotRecommendData,
+  getHomeLongforData,
+  getHomePlusData,
 } from "@/services";
 
 export const fetchHomeDataAction = createAsyncThunk(
@@ -25,6 +27,14 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeHotRecommendData().then((res) => {
       dispatch(changeRecommendInfoAction(res));
     });
+    // 可能想去房源
+    getHomeLongforData().then((res) => {
+      dispatch(changeLongforInfoAction(res));
+    });
+    // plus房源
+    getHomePlusData().then((res) => {
+      dispatch(changePlusInfoAction(res));
+    });
   }
 );
 
@@ -36,6 +46,8 @@ const homeSlice = createSlice({
     highScoreInfo: {},
     discountInfo: {},
     recommendInfo: {},
+    longforInfo: {},
+    plusInfo: {},
   },
   reducers: {
     // RTK的reducers为对象,相当于redux的reducer函数
@@ -51,6 +63,12 @@ const homeSlice = createSlice({
     },
     changeRecommendInfoAction(state, { payload }) {
       state.recommendInfo = payload;
+    },
+    changeLongforInfoAction(state, { payload }) {
+      state.longforInfo = payload;
+    },
+    changePlusInfoAction(state, { payload }) {
+      state.plusInfo = payload;
     },
   },
   // RTK 2.0 中删除了 createReducer 和 createSlice.extraReducers 的 "object" 形式，而是采用回调函数形式
@@ -73,6 +91,8 @@ export const {
   changeHighScoreInfoAction,
   changeDiscountInfoAction,
   changeRecommendInfoAction,
+  changeLongforInfoAction,
+  changePlusInfoAction,
 } = homeSlice.actions;
 
 export default homeSlice.reducer;

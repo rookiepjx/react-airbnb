@@ -27,3 +27,17 @@ export function getHomeHotRecommendData() {
     url: "/home/hotrecommenddest",
   });
 }
+
+// 可能想去房源
+export function getHomeLongforData() {
+  return request.get({
+    url: "/home/longfor",
+  });
+}
+
+// plus房源
+export function getHomePlusData() {
+  return request.get({
+    url: "/home/plus",
+  });
+}
