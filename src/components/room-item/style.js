@@ -24,6 +24,8 @@ export const ItemWrapper = styled.div`
       top: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover; // 防止图片比例压缩
+      cursor: pointer;
     }
   }
 
