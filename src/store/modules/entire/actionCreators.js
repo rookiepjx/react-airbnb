@@ -1,37 +1,42 @@
 import { getEntireRoomList } from "@/services/modules/entire";
 import * as actionTypes from "./constants";
 
-export const changeLoadingAction = (isLoading) => ({
+export const changeIsLoadingAction = (isLoading) => ({
   type: actionTypes.CHANGE_LOADING,
-  isLoading
-})
+  isLoading,
+});
 
 export const changeCurrentPageAction = (currentPage) => ({
   type: actionTypes.CHANGE_CURRENT_PAGE,
-  currentPage
-})
+  currentPage,
+});
 
 export const changeTotalCountAction = (totalCount) => ({
   type: actionTypes.CHANGE_TOTAL_COUNT,
-  totalCount
-})
+  totalCount,
+});
 
 export const changeRoomListAction = (roomList) => ({
   type: actionTypes.CHANGE_ROOM_LIST,
-  roomList
-})
+  roomList,
+});
 
+export const fetchRoomListAction = (page = 0) => {
+  // 新的函数
+  return async (dispatch, getState) => {
+    // 0.修改currentPage
+    dispatch(changeCurrentPageAction(page));
 
-export const fetchEntireDataAction = (page = 0) => {
-  return async dispatch => {
-    // 设置isLoading
-    dispatch(changeLoadingAction(true))
+    // 1.根据页码获取最新的数据
+    // const currentPage = getState().entire.currentPage
+    dispatch(changeIsLoadingAction(true));
+    const res = await getEntireRoomList(page * 20);
+    dispatch(changeIsLoadingAction(false));
 
-    const res = await getEntireRoomList(page * 20)
-    dispatch(changeLoadingAction(false))
-    // 保存数据
-    dispatch(changeCurrentPageAction(page))
-    dispatch(changeTotalCountAction(res.totalCount))
-    dispatch(changeRoomListAction(res.list))
-  }
-}
+    // 2.获取到最新的数据, 保存redux的store中
+    const roomList = res.list;
+    const totalCount = res.totalCount;
+    dispatch(changeRoomListAction(roomList));
+    dispatch(changeTotalCountAction(totalCount));
+  };
+};

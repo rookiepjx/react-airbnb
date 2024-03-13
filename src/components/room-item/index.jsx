@@ -4,12 +4,17 @@ import { Rating } from "@mui/material";
 import { ItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData, col } = props;
+  const { itemData, col, itemClick } = props;
+
+  const itemClickHandle = () => {
+    if (itemClick) itemClick(itemData);
+  };
 
   return (
     <ItemWrapper
       $verifyColor={itemData?.verify_info?.text_color || "#39576a"}
       $col={col}
+      onClick={itemClickHandle}
     >
       <div className="inner">
         <div className="cover">
