@@ -7,9 +7,9 @@ export const IndicatorWrapper = styled.div`
     display: flex;
     position: relative;
     transition: transform 200ms ease;
-  }
 
-  > * {
-    flex-shrink: 0;
+    > * {
+      flex-shrink: 0;
+    }
   }
 `;

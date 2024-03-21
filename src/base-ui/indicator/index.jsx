@@ -5,7 +5,6 @@ import { IndicatorWrapper } from "./style";
 
 const Indicator = memo((props) => {
   const { selectIndex = 0 } = props;
-  console.log(selectIndex);
   const contentRef = useRef();
 
   // 处理指示器滚动逻辑
