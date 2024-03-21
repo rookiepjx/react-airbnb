@@ -23,6 +23,7 @@ const EntireRooms = memo(() => {
   /** 事件处理 */
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // 跳转详情页面
   const itemClickHandle = useCallback(
     (item) => {
       dispatch(changeDetailInfoAction(item));
