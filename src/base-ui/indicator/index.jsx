@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { memo, useRef, useEffect } from "react";
 
 import { IndicatorWrapper } from "./style";

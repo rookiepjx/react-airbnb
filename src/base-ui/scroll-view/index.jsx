@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { memo, useRef, useState, useEffect } from "react";
 
 import IconArrowLeft from "@/assets/svg/icon-arrow-left";
