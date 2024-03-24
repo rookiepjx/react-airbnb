@@ -1,15 +1,13 @@
 import RoomItem from "@/components/room-item";
 import { changeDetailInfoAction } from "@/store/modules/detail";
-import React, { memo, useCallback, useEffect } from "react";
+import React, { memo, useCallback } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RoomsWrapper } from "./style";
+import { useScrollTop } from "@/hooks/useScrollTop";
 
 const EntireRooms = memo(() => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  useScrollTop();
   /** 从redux中获取roomList数据 */
   const { roomList, totalCount, isLoading } = useSelector(
     (state) => ({
