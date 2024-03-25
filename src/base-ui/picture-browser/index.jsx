@@ -12,8 +12,8 @@ import Indicator from "../indicator";
 import IconTriangleArrowTop from "@/assets/svg/icon-triangle-arrow-top";
 
 const PictureBrowser = memo((props) => {
-  const { pictureUrls, closeClick } = props;
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { pictureUrls, closeClick, index } = props;
+  const [currentIndex, setCurrentIndex] = useState(index);
   const [isNext, setIsNext] = useState(true);
   const [showList, setShowList] = useState(true);
 
