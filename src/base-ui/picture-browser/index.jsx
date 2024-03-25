@@ -45,7 +45,7 @@ const PictureBrowser = memo((props) => {
   };
 
   return (
-    <BrowserWrapper isNext={isNext} showList={showList}>
+    <BrowserWrapper $isNext={isNext} $showList={showList}>
       <div className="top">
         <div className="close-btn" onClick={closeBtnClickHandle}>
           <IconClose />
