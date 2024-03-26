@@ -7,6 +7,7 @@ import HomeBanner from "./components/home-banner";
 import HomeSection from "./components/home-section";
 import HomeLongFor from "./components/home-longfor";
 import { isEmptyObject } from "@/utils";
+import { changeHeaderConfigAction } from "@/store/modules/main";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -33,6 +34,7 @@ const Home = memo(() => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHomeDataAction());
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true })); // 设置header固定、透明
   }, [dispatch]);
 
   return (
