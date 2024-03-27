@@ -7,8 +7,8 @@ export const useScrollPosition = () => {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      setScrollX(window.screenX);
-      setScrollY(window.screenY);
+      setScrollX(window.scrollX);
+      setScrollY(window.scrollY);
     }, 100);
 
     window.addEventListener("scroll", handleScroll);
