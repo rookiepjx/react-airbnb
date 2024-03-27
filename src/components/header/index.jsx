@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useRef, useEffect } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import classNames from "classnames";
 import { ThemeProvider } from "styled-components";
@@ -23,6 +23,14 @@ const Header = memo(() => {
 
   // 监听滚动的监听
   const { scrollY } = useScrollPosition();
+
+  const prevScrollY = useRef(0);
+  // 在正常情况的情况下(搜索框没有弹出来), 不断记录值
+  if (!isSearch) prevScrollY.current = scrollY;
+  // 在弹出搜索功能的情况, 滚动的距离大于之前记录的距离30
+  if (isSearch && Math.abs(scrollY - prevScrollY.current) > 30)
+    setIsSearch(false);
+
   // header设置为透明并且处于顶部
   const isAlpha = topAlpha && scrollY === 0;
 
@@ -34,12 +42,12 @@ const Header = memo(() => {
             <HeaderLeft />
             {/* isSearch用于切换组件及动画 */}
             <HeaderCenter
-              isSearch={isSearch}
+              isSearch={isAlpha || isSearch}
               searchBarClick={(e) => setIsSearch(true)}
             />
             <HeaderRight />
           </div>
-          <SearchAreaWrapper isSearch={isSearch} />
+          <SearchAreaWrapper isSearch={isAlpha || isSearch} />
         </div>
 
         {isSearch && (
