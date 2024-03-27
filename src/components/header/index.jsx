@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import classNames from "classnames";
 
-import { HeaderWrapper } from "./style";
+import { HeaderWrapper, SearchAreaWrapper } from "./style";
 import HeaderLeft from "./components/header-left";
 import HeaderCenter from "./components/header-center";
 import HeaderRight from "./components/header-right";
@@ -24,9 +24,14 @@ const Header = memo(() => {
       <div className="content">
         <div className="top">
           <HeaderLeft />
-          <HeaderCenter />
+          {/* isSearch用于切换组件及动画 */}
+          <HeaderCenter
+            isSearch={isSearch}
+            searchBarClick={(e) => setIsSearch(true)}
+          />
           <HeaderRight />
         </div>
+        <SearchAreaWrapper isSearch={isSearch} />
       </div>
 
       {isSearch && (
